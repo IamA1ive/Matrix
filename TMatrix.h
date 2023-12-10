@@ -91,15 +91,15 @@ public:
 						sum += val[i][k] * mat.val[k][j];
 					}
 					result.val[i][j] = sum;
-				}		
+				}
 			}
 		}
 		return result;
 	};
 	TVector<Type>& operator[](int index) {
-		if (index < 0 || index >= size) {
-			cout << "Попытка обращения к недопустимому индексу матрицы. Возвращена первая строка матрицы." << endl;
-			return val[0];
+		while (index < 0 || index >= size) {
+			cout << "Ошибка: попытка обращения к недопустимому индексу матрицы. Введите корректное значение." << endl;
+			cin >> index;
 		}
 		return val[index];
 	};

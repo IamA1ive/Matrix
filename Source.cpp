@@ -9,14 +9,19 @@ int main() {
 	setlocale(LC_ALL, "Rus");
 
 	TMatrix<int> M1(3);
-	TMatrix<int> M2(3);
 	M1.Input();
-	M1.Print();
+	TMatrix<int> M2(3);
 	M2.Input();
-	M2.Print();
-	M1 = M1 * M2;
-	M1.Print();
-	M1[3].Print();
+	TMatrix<int> M3(3);
+	M3 = M1 + M2;
+	M3.Print();
+	M3 = M1 * M2;
+	M3.Print();
+	M3[2][2] = 200;
+	M3[3][3] = 200;
+
+	cout << endl << endl;
+	M3.Print();
 
 	return 0;
 }

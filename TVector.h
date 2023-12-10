@@ -138,22 +138,18 @@ public:
 		return res;
 	};
 	Type& operator[](int index) {
-		if (index < size && index >= 0) {
-			return val[index];
+		while (index >= size || index < 0) {
+			cout << "Ошибка: попытка взять значение по несуществующему индексу. Введите корректное значение." << endl;
+			cin >> index;
 		}
-		else {
-			cout << "Попытка взять значение по несуществующему индексу." << endl << "Возвращено значение первой компоненты." << endl;
-			return val[0];
-		};
+		return val[index];
 	};
 	Type& operator[](int index) const {
-		if (index < size && index >= 0) {
-			return val[index];
+		while (index >= size || index < 0) {
+			cout << "Ошибка: попытка взять значение по несуществующему индексу. Введите корректное значение." << endl;
+			cin >> index;
 		}
-		else {
-			cout << "Попытка взять значение по несуществующему индексу." << endl << "Возвращено значение первой компоненты." << endl;
-			return val[0];
-		};
+		return val[index];
 	};
 	int GetSize() {
 		return size;
@@ -288,15 +284,4 @@ public:
 			return val[0];
 		};
 	};
-	/*TVector operator+(TVector<int>& vec) {
-		TVector<TComplex> result(vec.GetSize());
-		if (size == vec.GetSize()) {
-			for (int i = 0; i < size; i++) {
-				result.val[i] = val[i] + vec[i];
-			}
-		}
-		else cout << "Векторы имеют разную размерность. Сложение невозможно." << endl << "Возвращён нулевой вектор." << endl;
-		return result;
-	};*/
 };
-
